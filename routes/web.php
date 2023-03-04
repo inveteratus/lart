@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\PasswordRecoveryController;
+use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,10 @@ Route::middleware('guest')->group(function () {
     Route::post('login', [LoginController::class, 'store']);
     Route::get('register', [RegisterController::class, 'create'])->name('register');
     Route::post('register', [RegisterController::class, 'store']);
+    Route::get('password/recovery', [PasswordRecoveryController::class, 'create'])->name('password.recovery');
+    Route::post('password/recovery', [PasswordRecoveryController::class, 'store']);
+    Route::get('password/reset', [PasswordResetController::class, 'create'])->name('password.reset');
+    Route::post('password/reset', [PasswordResetController::class, 'store']);
 });
 
 Route::post('logout', [LogoutController::class, 'destroy'])->name('logout');

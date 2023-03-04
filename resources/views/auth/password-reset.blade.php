@@ -11,7 +11,7 @@
                 <div class="flex flex-col space-y-1">
                     <label for="email" class="font-medium text-sm text-slate-600">Email</label>
                     <div class="flex flex-col space-y-0.5 w-full">
-                        <input id="email" type="email" name="email" value="{{ old('email') }}" class="border border-slate-300 text-sm rounded px-2.5 focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300" autocomplete="email" required autofocus />
+                        <input id="email" type="email" name="email" value="{{ old('email', $email) }}" class="border border-slate-300 text-sm rounded px-2.5 focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300" autocomplete="email" required />
                         @error('email')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -22,7 +22,7 @@
                     <label for="password" class="font-medium text-sm text-slate-600">Password</label>
                     <div class="flex flex-col space-y-0.5 w-full">
                         <div class="flex border border-slate-300 rounded focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300 overflow-hidden" x-data="{visible:false}">
-                            <input id="password" :type="visible?'text':'password'" name="password" class="border-none focus:border-none text-sm px-2.5 focus:outline-none flex-grow" autocomplete="current-password" required x-ref="input" />
+                            <input id="password" :type="visible?'text':'password'" name="password" class="border-none focus:border-none text-sm px-2.5 focus:outline-none flex-grow" autocomplete="new-password" required x-ref="input" autofocus />
                             <button type="button" tabindex="-1" class="p-2 bg-neutral-100 border-l border-slate-300 text-slate-500 focus:outline-none" @click.stop.prevent="visible=!visible;$refs.input.focus()">
                                 <x-heroicons.outline.eye class="w-5 h-5" x-cloak x-show="visible" />
                                 <x-heroicons.outline.eye-slash class="w-5 h-5" x-show="!visible" />
@@ -36,14 +36,14 @@
 
                 @csrf
 
-                <div class="flex pt-4 justify-between items-center">
-                    <button type="submit" class="px-3 py-2 bg-blue-500 focus:outline-none text-sm text-white hover:bg-blue-600 font-medium focus:ring-2 focus:ring-offset-1 focus:ring-blue-200 rounded shadow">Login</button>
-                    <a href="{{ route('password.recovery') }}" class="text-sm focus:outline-none focus:underline hover:underline">Forgot your password ?</a>
+                <div class="flex pt-4">
+                    <button type="submit" class="px-3 py-2 bg-blue-500 focus:outline-none text-sm text-white hover:bg-blue-600 font-medium focus:ring-2 focus:ring-offset-1 focus:ring-blue-200 rounded shadow">Reset Password</button>
+
+                    <input type="hidden" name="token" value="{{ $token }}" />
                 </div>
 
             </form>
         </div>
-        <p class="text-sm"><a href="{{ route('register') }}" class="focus:outline-none focus:underline hover:underline">Don't have an account yet ?</a></p>
     </div>
 
 </x-layouts.app>
