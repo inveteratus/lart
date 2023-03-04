@@ -1,6 +1,9 @@
 <x-html>
-    @guest
+    @auth
+        @include("partials.navbar.auth")
+    @else
         @include("partials.navbar.guest")
-    @endguest
+    @endauth
+
     {{ $slot }}
 </x-html>
