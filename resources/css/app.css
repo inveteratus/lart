@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For AlpineJS, hide elements marked with x-cloak */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Attempt to address issues with password fields using a different background color */
+input:-webkit-autofill, input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
