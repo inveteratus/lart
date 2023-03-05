@@ -12,19 +12,22 @@
                         <x-heroicons.mini.chevron-up x-cloak x-show="open" class="w-5 h-5" />
                     </span>
                 </button>
-                <div class="absolute right-0 top-0 mt-16 bg-white whitespace-nowrap flex flex-col py-2 rounded shadow" @click.prevent.away="open=false" x-show="open" x-cloak>
-                    {{--
-                    <a href="#" class="px-5 py-1 text-slate-600 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none">Link</a>
-                    <a href="#" class="px-5 py-1 text-slate-600 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none">Long Link</a>
-                    <a href="#" class="px-5 py-1 text-slate-600 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none">Very Long Link</a>
+                <div class="absolute right-0 top-0 mt-16 bg-white whitespace-nowrap flex flex-col py-2 rounded shadow z-10" @click.prevent.away="open=false" x-show="open" x-cloak>
+                    <a href="{{ route('settings') }}" class="px-5 py-1 text-slate-600 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none inline-flex items-center space-x-2">
+                        <x-heroicons.outline.cog-6-tooth class="w-5 h-5 opacity-75" />
+                        <span>Settings&hellip;</span>
+                    </a>
                     <hr class="my-1.5">
-                    --}}
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <button type="submit" class="px-5 py-1 hover:bg-slate-100 w-full text-slate-700 text-left focus:bg-slate-100 focus:outline-none">Logout</button>
+                        <button type="submit" class="px-5 py-1 hover:bg-slate-100 w-full text-slate-700 text-left focus:bg-slate-100 focus:outline-none inline-flex items-center space-x-2">
+                            <x-heroicons.outline.power class="w-5 h-5 opacity-75" />
+                            <span>Logout</span>
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </nav>
 </header>
+

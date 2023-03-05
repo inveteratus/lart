@@ -2,7 +2,7 @@
 
     <div class="flex flex-col flex-grow items-center justify-center space-y-2">
         <div class="bg-slate-100 px-8 py-6 rounded shadow max-w-sm w-full">
-            <form method="post" class="flex flex-col space-y-2">
+            <form action="{{ route('password.reset.store') }}" method="post" class="flex flex-col space-y-2">
 
                 @if (session('status'))
                     <p class="text-sm text-green-600">{{ session('status') }}</p>
