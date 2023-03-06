@@ -12,12 +12,12 @@ class ChangePasswordController extends Controller
     public function __invoke(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'current' => 'required|current_password',
-            'password' => 'required|string|min:8',
+            'old' => 'required|current_password',
+            'new' => 'required|string|min:8',
         ]);
 
         $request->user()->update([
-            'password' => Hash::make($validated['password']),
+            'password' => Hash::make($validated['new']),
         ]);
 
         return back()->with('status', 'password-updated');

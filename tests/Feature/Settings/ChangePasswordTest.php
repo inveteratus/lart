@@ -15,8 +15,8 @@ class ChangePasswordTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->patch(route('settings.password'), [
-            'current' => 'password',
-            'password' => 'password',
+            'old' => 'password',
+            'new' => 'password',
         ]);
 
         $response->assertSessionHas(['status' => 'password-updated']);
@@ -27,8 +27,8 @@ class ChangePasswordTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->patch(route('settings.password'), [
-            'current' => 'wrong-password',
-            'password' => 'password',
+            'old' => 'wrong-password',
+            'new' => 'password',
         ]);
 
         $response->assertSessionHasErrors();

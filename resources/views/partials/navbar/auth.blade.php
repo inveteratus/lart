@@ -18,13 +18,12 @@
                         <span>Settings&hellip;</span>
                     </a>
                     <hr class="my-1.5">
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
+                    <x-form action="{{ route('logout') }}">
                         <button type="submit" class="px-5 py-1 hover:bg-slate-100 w-full text-slate-700 text-left focus:bg-slate-100 focus:outline-none inline-flex items-center space-x-2">
                             <x-heroicons.outline.power class="w-5 h-5 opacity-75" />
                             <span>Logout</span>
                         </button>
-                    </form>
+                    </x-form>
                 </div>
             </div>
         </section>
