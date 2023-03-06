@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-span-3">
-            <x-form action="{{ route('settings.profile') }}" method="patch" class="flex flex-col space-y-3">
+            <x-form action="{{ route('settings.profile') }}" method="patch">
 
                 <x-field.text name="name" value="{{ old('name', $user) }}" autocomplete="name" required autofocus />
                 <x-field.email value="{{ old('email', $user) }}" autocomplete="name" required autofocus />

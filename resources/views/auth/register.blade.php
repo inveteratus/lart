@@ -2,7 +2,7 @@
 
     <div class="flex flex-col flex-grow items-center justify-center space-y-2">
         <div class="bg-slate-100 px-8 py-6 rounded shadow max-w-sm w-full">
-            <x-form class="flex flex-col space-y-3">
+            <x-form>
 
                 <x-field.text name="name" value="{{ old('name') }}" autocomplete="name" required autofocus />
                 <x-field.email value="{{ old('email') }}" autocomplete="email" required />

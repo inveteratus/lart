@@ -7,7 +7,7 @@
             @endif
         </div>
         <div class="col-span-3">
-            <x-form action="{{ route('settings.password') }}" method="patch" class="flex flex-col space-y-3">
+            <x-form action="{{ route('settings.password') }}" method="patch">
 
                 <x-field.password name="old" label="Current Password" autocomplete="current-password" required />
                 <x-field.password name="new" label="New Password" autocomplete="new-password" required />

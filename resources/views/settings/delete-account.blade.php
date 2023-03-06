@@ -4,7 +4,7 @@
             <h2 class="font-medium text-gray-600">Delete Account</h2>
         </div>
         <div class="col-span-3">
-            <x-form action="{{ route('settings.delete') }}" method="delete" class="flex flex-col space-y-3">
+            <x-form action="{{ route('settings.delete') }}" method="delete">
 
                 <x-field.password autocomplete="current-password" required />
 
