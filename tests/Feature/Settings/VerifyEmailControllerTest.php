@@ -12,7 +12,10 @@ class VerifyEmailControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testNotificationSent(): void
+    /**
+     * @test
+     */
+    public function notificationSent(): void
     {
         Notification::fake();
 

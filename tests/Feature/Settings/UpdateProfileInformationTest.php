@@ -10,7 +10,10 @@ class UpdateProfileInformationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCanChangeName(): void
+    /**
+     * @test
+     */
+    public function canChangeName(): void
     {
         $user = User::factory()->create();
 
@@ -23,7 +26,10 @@ class UpdateProfileInformationTest extends TestCase
         $this->assertDatabaseHas('users', ['email' => $user->email, 'name' => 'Other Name']);
     }
 
-    public function testCanChangeEmail(): void
+    /**
+     * @test
+     */
+    public function canChangeEmail(): void
     {
         $user = User::factory()->create();
 

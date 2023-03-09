@@ -13,7 +13,10 @@ class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         Notification::fake();
 
@@ -32,7 +35,10 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function testCanResetPassword(): void
+    /**
+     * @test
+     */
+    public function canResetPassword(): void
     {
         Notification::fake();
 
@@ -53,7 +59,10 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function testCannotResetPasswordWithWrongToken(): void
+    /**
+     * @test
+     */
+    public function cannotResetPasswordWithWrongToken(): void
     {
         Notification::fake();
 
@@ -74,7 +83,10 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function testCannotResetPasswordWithWrongEmail(): void
+    /**
+     * @test
+     */
+    public function cannotResetPasswordWithWrongEmail(): void
     {
         Notification::fake();
 

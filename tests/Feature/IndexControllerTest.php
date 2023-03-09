@@ -10,7 +10,10 @@ class IndexControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $response = $this->get(route('index'));
 

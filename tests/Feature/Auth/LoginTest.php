@@ -12,14 +12,20 @@ class LoginTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $response = $this->get(route('login'));
 
         $response->assertStatus(Response::HTTP_OK);
     }
 
-    public function testCanLogin(): void
+    /**
+     * @test
+     */
+    public function canLogin(): void
     {
         $user = User::factory()->create();
 
@@ -32,7 +38,10 @@ class LoginTest extends TestCase
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
-    public function testCannotLoginWithWrongEmail(): void
+    /**
+     * @test
+     */
+    public function cannotLoginWithWrongEmail(): void
     {
         $this->post(route('login'), [
             'email' => 'wrong@example.com',
@@ -42,7 +51,10 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
-    public function testCannotLoginWithWrongPassword(): void
+    /**
+     * @test
+     */
+    public function cannotLoginWithWrongPassword(): void
     {
         $user = User::factory()->create();
 

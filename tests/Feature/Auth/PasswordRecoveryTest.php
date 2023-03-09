@@ -13,14 +13,20 @@ class PasswordRecoveryTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $response = $this->get(route('password.recovery'));
 
         $response->assertStatus(Response::HTTP_OK);
     }
 
-    public function testSendsEmail(): void
+    /**
+     * @test
+     */
+    public function sendsEmail(): void
     {
         Notification::fake();
 
@@ -31,7 +37,10 @@ class PasswordRecoveryTest extends TestCase
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    public function testDoesntSendEmailToUnknownUser(): void
+    /**
+     * @test
+     */
+    public function doesntSendEmailToUnknownUser(): void
     {
         Notification::fake();
 

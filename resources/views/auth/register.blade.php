@@ -1,4 +1,4 @@
-    <x-layouts.app>
+<x-layouts.app>
 
     <div class="flex flex-col flex-grow items-center justify-center space-y-2">
         <div class="bg-slate-100 px-8 py-6 rounded shadow max-w-sm w-full">

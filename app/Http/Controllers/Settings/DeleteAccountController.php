@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Settings;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class DeleteAccountController
 {
@@ -16,7 +15,7 @@ class DeleteAccountController
 
         $user = $request->user();
 
-        Auth::guard('web')->logout();
+        auth()->guard('web')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

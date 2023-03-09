@@ -11,7 +11,10 @@ class HomeControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $user = User::factory()->create();
 

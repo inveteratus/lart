@@ -14,14 +14,20 @@ class RegisterTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $response = $this->get(route('register'));
 
         $response->assertStatus(Response::HTTP_OK);
     }
 
-    public function testCanRegister(): void
+    /**
+     * @test
+     */
+    public function canRegister(): void
     {
         Notification::fake();
 
@@ -39,7 +45,10 @@ class RegisterTest extends TestCase
         Notification::assertSentTo($user, VerifyEmail::class);
     }
 
-    public function testCannotRegisterWithExistingEmail(): void
+    /**
+     * @test
+     */
+    public function cannotRegisterWithExistingEmail(): void
     {
         $user = User::factory()->create();
 

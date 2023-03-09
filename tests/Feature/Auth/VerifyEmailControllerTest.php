@@ -17,7 +17,10 @@ class VerifyEmailControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPageLoads(): void
+    /**
+     * @test
+     */
+    public function pageLoads(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -27,7 +30,10 @@ class VerifyEmailControllerTest extends TestCase
         $response->assertStatus(Response::HTTP_OK);
     }
 
-    public function testRedirectIfAlreadyVerified(): void
+    /**
+     * @test
+     */
+    public function redirectIfAlreadyVerified(): void
     {
         $user = User::factory()->create();
 
@@ -36,7 +42,10 @@ class VerifyEmailControllerTest extends TestCase
             ->assertRedirect(RouteServiceProvider::HOME);
     }
 
-    public function testCanVerifyEmail(): void
+    /**
+     * @test
+     */
+    public function canVerifyEmail(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -56,7 +65,10 @@ class VerifyEmailControllerTest extends TestCase
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
-    public function testRedirectIfAlreadyVerified_2(): void
+    /**
+     * @test
+     */
+    public function redirectAfterVerifying(): void
     {
         $user = User::factory()->create();
 
@@ -71,7 +83,10 @@ class VerifyEmailControllerTest extends TestCase
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
-    public function testEmailIsNotVerifiedWithWrongHash(): void
+    /**
+     * @test
+     */
+    public function emailIsNotVerifiedWithWrongHash(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -86,7 +101,10 @@ class VerifyEmailControllerTest extends TestCase
         $this->assertFalse($user->fresh()->hasVerifiedEmail());
     }
 
-    public function testLinkIsSent(): void
+    /**
+     * @test
+     */
+    public function linkIsSent(): void
     {
         Notification::fake();
         $user = User::factory()->unverified()->create();
@@ -95,7 +113,10 @@ class VerifyEmailControllerTest extends TestCase
         $response->assertSessionHas(['status' => 'verification-link-sent']);
     }
 
-    public function testLinkIsNotSentIfUserIsVerified(): void
+    /**
+     * @test
+     */
+    public function linkIsNotSentIfUserIsVerified(): void
     {
         Notification::fake();
         $user = User::factory()->create();

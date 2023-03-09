@@ -10,7 +10,10 @@ class DeleteAccountTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCanDeleteAccount(): void
+    /**
+     * @test
+     */
+    public function canDeleteAccount(): void
     {
         $user = User::factory()->create();
 
@@ -22,7 +25,10 @@ class DeleteAccountTest extends TestCase
         $response->assertRedirectToRoute('index');
     }
 
-    public function testCannotDeleteAccountWithWrongPassword(): void
+    /**
+     * @test
+     */
+    public function cannotDeleteAccountWithWrongPassword(): void
     {
         $user = User::factory()->create();
 

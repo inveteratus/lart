@@ -10,7 +10,10 @@ class ChangePasswordTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCanChangePassword(): void
+    /**
+     * @test
+     */
+    public function canChangePassword(): void
     {
         $user = User::factory()->create();
 
@@ -22,7 +25,10 @@ class ChangePasswordTest extends TestCase
         $response->assertSessionHas(['status' => 'password-updated']);
     }
 
-    public function testCannotChangePasswordWithWrongPassword(): void
+    /**
+     * @test
+     */
+    public function cannotChangePasswordWithWrongPassword(): void
     {
         $user = User::factory()->create();
 
