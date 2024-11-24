@@ -1,0 +1,6 @@
+main[class="index"] {
+    @apply flex flex-col flex-grow items-center justify-center;
+    h2 {
+        @apply font-thin text-7xl text-slate-600 dark:text-slate-400;
+    }
+}

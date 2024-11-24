@@ -1,0 +1,61 @@
+[class^="input-"] {
+    @apply flex flex-col space-y-0.5;
+
+    & > label {
+        @apply font-medium text-sm text-slate-600 dark:text-slate-400;
+    }
+
+    & span.error {
+        @apply text-red-500 dark:text-red-500 text-sm;
+    }
+}
+
+.input-text > div > input,
+.input-time > div > input,
+.input-email > div > input,
+.input-textarea > div > textarea {
+    @apply w-full rounded px-2 py-2 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border
+    border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-blue-500
+    dark:focus:ring-blue-500 focus:border-transparent;
+}
+
+.input-textarea > div > textarea {
+    @apply aspect-[16/3];
+}
+
+.input-password > div > div {
+    @apply w-full rounded bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700
+    focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-0 focus-within:ring-blue-500
+    dark:focus-within:ring-blue-500 focus-within:border-transparent flex overflow-hidden;
+
+    & > input {
+        @apply bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border-0 px-2 py-2 flex-grow
+        focus:outline-none;
+    }
+
+    & > button {
+        @apply border-l border-slate-300 dark:border-slate-700 px-2.5 bg-slate-50 dark:bg-slate-950 text-slate-600
+        dark:text-slate-400;
+
+        & > svg {
+            @apply w-6 h-6;
+        }
+    }
+}
+
+.input-toggle > div > div > button {
+    @apply bg-slate-300 dark:bg-slate-700 relative inline-flex w-12 rounded-full py-1 transition focus:outline-none
+    focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-100 dark:focus:ring-offset-slate-900 focus:ring-blue-500;
+
+    & > span {
+        @apply bg-white w-5 h-5 rounded-full transition shadow-md translate-x-1;
+    }
+
+    &.checked {
+        @apply bg-blue-500;
+
+        & > span {
+            @apply translate-x-6;
+        }
+    }
+}
