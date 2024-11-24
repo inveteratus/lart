@@ -42,4 +42,4 @@ test('cannot login when rate limited', function () {
         ->post(route('login'), ['email' => 'test@example.com', 'password' => 'password'])
         ->assertStatus(429);
     $this->assertGuest();
-});
+})->group('controllers', 'auth');

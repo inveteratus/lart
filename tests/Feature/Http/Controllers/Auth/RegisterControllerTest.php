@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 
 test('the page loads', function () {
     $this->get(route('register'))
@@ -9,12 +10,15 @@ test('the page loads', function () {
 })->group('controllers', 'auth');
 
 test('we can register a new account', function () {
+    Notification::fake();
     $this->from(route('register'))
         ->post(route('register'), ['name' => 'Test', 'email' => 'test@example.com', 'password' => 'password'])
         ->assertRedirect(route('index'))
         ->assertSessionHasNoErrors();
     $this->assertAuthenticated();
     $this->assertDatabaseHas('users', ['name' => 'Test', 'email' => 'test@example.com']);
+    $user = User::where('email', 'test@example.com')->first();
+    Notification::assertSentTo($user, VerifyEmail::class);
 })->group('controllers', 'auth');
 
 test('we cannot register an account that already exists', function () {
@@ -38,4 +42,4 @@ test('cannot register when rate limited', function () {
         ->post(route('register'), ['name' => 'Test', 'email' => 'good@example.com', 'password' => 'password'])
         ->assertStatus(429);
     $this->assertGuest();
-});
+})->group('controllers', 'auth');

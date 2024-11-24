@@ -7,14 +7,16 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property string $email
  * @property string $password
+ * @property string $token
  */
-class LoginRequest extends FormRequest
+class ResetPasswordRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
             'email' => 'required|string|email',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8',
+            'token' => 'required|string',
         ];
     }
 }

@@ -2,6 +2,14 @@ main[class^=auth] {
     @apply flex flex-col flex-grow items-center justify-center;
 
     & > form {
+        & > p {
+            @apply text-sm;
+
+            &.status {
+                @apply text-green-500 dark:text-green-500;
+            }
+        }
+
         @apply bg-slate-100 dark:bg-slate-900 max-w-sm w-full px-8 py-6 flex flex-col space-y-4 rounded-lg shadow;
 
         & > footer {
