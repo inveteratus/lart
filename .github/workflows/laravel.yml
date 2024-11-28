@@ -32,7 +32,7 @@ jobs:
       - name: Compile assets
         run: |
           npm install
-          npm run production
+          npm run build
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: sqlite
